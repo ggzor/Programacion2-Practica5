@@ -6,7 +6,7 @@
       "name": "Depurar",
       "request": "launch",
       "cwd": "${workspaceFolder}",
-      "console": "internalConsole",
+      "console": "integratedTerminal",
       "stopOnEntry": false,
       "mainClass": "App",
       "args": "",
