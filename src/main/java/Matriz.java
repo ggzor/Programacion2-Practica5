@@ -59,10 +59,6 @@ public class Matriz {
     return false;
   }
 
-  public void mostrar() {
-    System.out.println("Matriz");
-  }
-
   public boolean puedeSumarseCon(Matriz b) {
     return filas == b.filas && columnas == b.columnas;
   }
@@ -92,5 +88,23 @@ public class Matriz {
   
   public int[][] getElementos() {
     return elementos;
+  }
+
+  public String toString() {
+    String resultado = "";
+
+    for (int i = 0; i < filas; i++) {
+      for (int j = 0; j < columnas; j++) {
+        resultado += elementos[i][j];
+
+        if(j + 1 < columnas)
+          resultado += " ";
+      }
+
+      if(i + 1 < filas)
+        resultado += "\n";
+    }
+
+    return resultado;
   }
 }

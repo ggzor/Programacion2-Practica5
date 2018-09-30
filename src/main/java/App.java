@@ -79,7 +79,7 @@ public class App {
   }
 
   private static void mostrarInformacionMatriz(Matriz M) {
-    M.mostrar();
+    System.out.println(M);
     System.out.print("Propiedades: ");
 
     if (M.esIdentidad())

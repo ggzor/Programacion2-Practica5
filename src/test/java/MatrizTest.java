@@ -215,7 +215,7 @@ public class MatrizTest {
 
     assertEquals(3 , resultado);
   }
-  
+
   @Test
   public void getColumnas_deberiaRegresarInt_cuandoEsMatriz(){
     int elementos[][] = {
@@ -228,5 +228,18 @@ public class MatrizTest {
     int resultado = matriz.getColumnas();
     
     assertEquals(3, resultado);
+  }
+
+  @Test
+  public void toString_deberiaRegresarRepresentacionDeMatriz_cuandoMatrizEs() {
+    int elementos[][] = {
+      {1, 2},
+      {3, 4}
+    };
+
+    String resultado = new Matriz(2, 2, elementos).toString();
+    
+    String esperado = "1 2\n3 4";
+    assertEquals(esperado, resultado);
   }
 }
