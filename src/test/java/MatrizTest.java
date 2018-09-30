@@ -119,4 +119,39 @@ public class MatrizTest {
 
     assertFalse(matriz.esIdentidad());
   }
+
+  @Test
+  public void puedeSumarseCon_deberiaRegresarFalse_cuandoNoSonDelMismoTamano(){
+    int elementos1[][] = {
+      {1, 0, 0},
+      {0, 1, 0},
+    };
+
+    int elementos2[][] = {
+      {0, 0},
+      {0, 0}      
+    };
+    Matriz matriz = new Matriz(2, 3, elementos1);
+    Matriz matriz2 = new Matriz(2, 2, elementos2);
+
+    assertFalse(matriz.puedeSumarseCon(matriz2));
+  }
+  
+  @Test
+  public void puedeSumarseCon_deberiaRegresarTrue_cuandoSonDelMismoTamano(){
+    int elementos[][] = {
+      {1, 0, 0},
+      {0, 1, 0},
+      {0, 0, 2}
+    };
+    int elementos2[][] = {
+      {2, 2, 2},
+      {2, 2, 2},
+      {2, 2, 2}
+    };
+    Matriz matriz = new Matriz(3, 3, elementos);
+    Matriz matriz2 =new Matriz(3, 3, elementos2);
+
+    assertTrue(matriz.puedeSumarseCon(matriz2));
+  }    
 }

@@ -69,12 +69,14 @@ public class Matriz {
 
   public Matriz sumar(Matriz b) {
     if (puedeSumarseCon(b)) {
+      int resultados[][] = new int[filas][columnas];
       for (int i = 0; i < filas; i++) {
         for (int j = 0; j < columnas; j++) {
-          elementos[i][j] += b.elementos[i][j];
+          resultados[i][j] = elementos[i][j] + b.elementos[i][j];
         }
       }
-      return null;
+
+      return new Matriz(filas, columnas, resultados);
     }
 
     return null;
@@ -86,5 +88,9 @@ public class Matriz {
 
   public int getColumnas() {
     return columnas;
+  }
+  
+  public int[][] getElementos() {
+    return elementos;
   }
 }
