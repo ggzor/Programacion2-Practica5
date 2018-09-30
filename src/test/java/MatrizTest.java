@@ -1,4 +1,6 @@
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
@@ -153,5 +155,49 @@ public class MatrizTest {
     Matriz matriz2 =new Matriz(3, 3, elementos2);
 
     assertTrue(matriz.puedeSumarseCon(matriz2));
+  }    
+
+  @Test
+  public void sumar_deberiaRegresarSuma_cuandoSonDelMismoTamano(){
+    int elementos[][] = {
+      {1, 0, 0},
+      {0, 1, 0},
+      {0, 0, 1}
+    };
+    int elementos2[][] = {
+      {2, 2, 2},
+      {2, 2, 2},
+      {2, 2, 2}
+    };
+    Matriz matriz = new Matriz(3, 3, elementos);
+    Matriz matriz2 =new Matriz(3, 3, elementos2);
+    
+    Matriz resultado = matriz.sumar(matriz2);
+    
+    int esperado[][] = {
+      {3, 2, 2},
+      {2, 3, 2},
+      {2, 2, 3}
+    };
+    assertArrayEquals(esperado, resultado.getElementos());
+  }    
+
+  @Test
+  public void sumar_deberiaRegresarNull_cuandoNoSonDelMismoTamano(){
+    int elementos[][] = {
+      {1, 0, 0},
+      {0, 1, 0}
+    };
+    int elementos2[][] = {
+      {2, 2, 2},
+      {2, 2, 2},
+      {2, 2, 2}
+    };
+    Matriz matriz = new Matriz(2, 3, elementos);
+    Matriz matriz2 =new Matriz(3, 3, elementos2);
+    
+    Matriz resultado = matriz.sumar(matriz2);
+    
+    assertNull(resultado);
   }    
 }
