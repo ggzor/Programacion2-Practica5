@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -199,5 +200,33 @@ public class MatrizTest {
     Matriz resultado = matriz.sumar(matriz2);
     
     assertNull(resultado);
-  }    
+  }
+  
+  @Test
+  public void getFilas_deberiaRegresarNumeroFilas_cuandoEsMatriz(){
+    int elementos[][] = {
+      {1, 0, 0},
+      {0, 1, 0},
+      {0, 0, 2}
+    };
+    Matriz matriz = new Matriz(3, 3, elementos);
+
+    int resultado = matriz.getFilas();
+
+    assertEquals(3 , resultado);
+  }
+  
+  @Test
+  public void getColumnas_deberiaRegresarInt_cuandoEsMatriz(){
+    int elementos[][] = {
+      {1, 0, 0},
+      {0, 1, 0},
+      {0, 0, 2}
+    };
+    Matriz matriz = new Matriz(3, 3, elementos);
+
+    int resultado = matriz.getColumnas();
+    
+    assertEquals(3, resultado);
+  }
 }
