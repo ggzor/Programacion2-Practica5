@@ -16,7 +16,7 @@ public class MatricesIO {
       for (int j = 0; j < columnas; j++)
         elementos[i][j] = entrada.nextInt();
 
-    return new Matriz(filas, columnas, elementos);
+    return new Matriz(elementos);
   }
 
   public void guardarMatriz(OutputStream archivo, Matriz m) {

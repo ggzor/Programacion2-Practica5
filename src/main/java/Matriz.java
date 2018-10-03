@@ -3,9 +3,9 @@ public class Matriz {
   private int filas;
   private int columnas;
 
-  public Matriz(int fil, int col, int valores[][]) {
-    filas = fil;
-    columnas = col;
+  public Matriz(int valores[][]) {
+    filas = valores.length;
+    columnas = valores[0].length;
     elementos = valores;
   }
 
@@ -30,8 +30,8 @@ public class Matriz {
 
   public boolean esSimetrica() {
     if (columnas == filas) {
-      for (int i = 0; i < filas; i++) {
-        for (int j = 0; j < columnas; j++) {
+      for (int i = 0; i < filas - 1; i++) {
+        for (int j = i + 1; j < columnas; j++) {
           if (elementos[i][j] != elementos[j][i]) {
             return false;
           }
@@ -45,9 +45,9 @@ public class Matriz {
 
   public boolean esTriangularSuperior() {
     if (columnas == filas) {
-      for (int i = 0; i < filas; i++) {
-        for (int j = 0; j < columnas; j++) {
-          if (j < i && elementos[i][j] != 0) {
+      for (int i = 1; i < filas; i++) {
+        for (int j = 0; j < i; j++) {
+          if (elementos[i][j] != 0) {
             return false;
           }
         }
@@ -72,7 +72,7 @@ public class Matriz {
         }
       }
 
-      return new Matriz(filas, columnas, resultados);
+      return new Matriz(resultados);
     }
 
     return null;
